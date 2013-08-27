@@ -19,7 +19,7 @@
 				menuHtml += "<li><a href='"+val.url+"'>"+val.title+"</a></li>";
 
 			});
-			$(".nav").html(menuHtml);
+			$("#mainMenu").html(menuHtml);
 			$.ajax({
 					type: "GET",
 					url: "data.php",
@@ -36,7 +36,7 @@
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a class="brand" href="#">Quotation Of The Day</a>
-					<ul class="nav">
+					<ul class="nav" id="mainMenu">
 <!--
 				<li><a href="#">About</a></li>
 				<li><a href="#">Random</a></li>
@@ -51,9 +51,12 @@
 		<div class="container">
 			<div class="row-fluid">
 				<div class="span3">
-					test
+					<ul class="nav nav-list authorsMenu">
+						<li class="nav-header">Authors</li>
+						<li><a href="#">Test</a></li>
+					</ul>
 				</div>
-				<div class="span5 offset3">
+				<div class="span9">
 					<div class="hero-unit quotationBox">
 						<h2>Quotation of the Day</h2>
 						<blockquote>

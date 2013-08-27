@@ -8,6 +8,12 @@
 				background-color: #fff;
 			}
 
+			.authorsMenu {
+				background-color: #FFFFFF;
+				border: 1px solid #CCC;
+				-webkit-border-radius: 6px;
+			}
+
 			hr {
 				border-top: 1px solid #ccc;
 				border-bottom: 1px solid #ccc;
@@ -33,4 +39,7 @@
 			#wrap > .container {
 				padding-top: 60px;
 			}
+
+
+
 
