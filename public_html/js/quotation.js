@@ -7,6 +7,10 @@ var menuTitles = [
 			{
 				title:"Random",
 				url:"rand.html"
+			},
+			{
+				title:"Authors",
+				url:"authors.html"
 			}
 		];
 
