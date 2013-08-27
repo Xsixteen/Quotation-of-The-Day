@@ -20,28 +20,15 @@
 
 			});
 			$(".nav").html(menuHtml);
-			$("#next_quote").on('click', function() {
-				$.ajax({
-						type: "GET",
-						url: "data.php",
-						data: { m: "rand"},
-						dataType: 'json'
-					}).done(function(json) {
-						$("#quotation").html(json.quote);
-						$("#author").html(json.author);
-					});
-
-			});
 			$.ajax({
 					type: "GET",
 					url: "data.php",
-					data: { m: "rand"},
+					data: { m: "todays_quote"},
 					dataType: 'json'
 				}).done(function(json) {
 					$("#quotation").html(json.quote);
 					$("#author").html(json.author);
 			});
-
 		});
 	</script>
 	<div id="wrap">
@@ -50,21 +37,29 @@
 				<div class="container-fluid">
 					<a class="brand" href="#">Quotation Of The Day</a>
 					<ul class="nav">
+<!--
+				<li><a href="#">About</a></li>
+				<li><a href="#">Random</a></li>
+				<li><a href="#">Quotes by Author</a></li>
+				<li><a href="#">Previous Monthly Quote</a></li>
+				<li><a href="#">Quote Database</a></li>
+-->
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row-fluid">
-				<div class="span9">
+				<div class="span3">
+					test
+				</div>
+				<div class="span5 offset3">
 					<div class="hero-unit quotationBox">
-						<h2>Random Quotation</h2>
+						<h2>Quotation of the Day</h2>
 						<blockquote>
 							<p><div id="quotation"></div></p>
 							<small><div id="author"></div></small>
 						</blockquote>
-						<button type="button" id="next_quote" class="btn btn-default">Next Quote</button>
-						
 					</div>
 				</div>
 			</div>
