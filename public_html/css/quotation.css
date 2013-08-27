@@ -1,0 +1,36 @@
+			html,body {
+				height: 100%;
+				background-color: #efefef;
+			}
+	
+			.quotationBox {
+				border: 1px solid #CCC;
+				background-color: #fff;
+			}
+
+			hr {
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+			}
+	
+			#push, 
+			#footer {
+				height: 30px;
+			}
+			
+			#footer {
+				padding-top: 15px;
+				color: #707070;
+				background-color: #E8E8E8;
+			}
+
+			#wrap {
+				margin:0 auto -45px;
+				height: auto !important;
+				min-height: 100%;
+			}
+
+			#wrap > .container {
+				padding-top: 60px;
+			}
+
