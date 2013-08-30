@@ -31,6 +31,18 @@
 		return $random;
 	}
 
+	function Get_Authors()
+	{
+		$authors = array();
+		
+		$sql = mysql_query("select distinct author FROM quotation");
+		while($row =  mysql_fetch_array($sql, MYSQL_ASSOC)) {
+			array_push($authors, $row);
+		}
+		
+		return $authors;
+	}
+
 	$con = mysql_connect("localhost", "quotation", "r8yYZwLa") or die(mysql_error());
 	mysql_select_db("quotation") or die(mysql_error());
 
@@ -42,6 +54,10 @@
 	} else if($mode == 'rand') {
 		header('Content-type: text/javascript');
 		echo json_encode(Get_Rand());
+	} else if($mode == 'authors') {
+		header('Content-type: text/javascript');
+		echo json_encode(Get_Authors());
+		
 	} else {
 		echo "Invalid Command\n";
 	}
