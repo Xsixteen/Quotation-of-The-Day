@@ -35,12 +35,24 @@
 	{
 		$authors = array();
 		
-		$sql = mysql_query("select distinct author FROM quotation");
+		$sql = mysql_query("select distinct author FROM quotation ORDER BY author ASC");
 		while($row =  mysql_fetch_array($sql, MYSQL_ASSOC)) {
 			array_push($authors, $row);
 		}
 		
 		return $authors;
+	}
+
+	function Get_Quotes($author) {
+		$quotes = array();
+		
+		$sql = mysql_query("select * FROM quotation WHERE author = $author");
+		while($row =  mysql_fetch_array($sql, MYSQL_ASSOC)) {
+			array_push($quotes, $row);
+		}
+
+		return $quotes;
+
 	}
 
 	$con = mysql_connect("localhost", "quotation", "r8yYZwLa") or die(mysql_error());
@@ -51,13 +63,19 @@
 		header('Content-type: text/javascript');
 	//	var_dump(GetTodaysQuote());
 		echo json_encode(GetTodaysQuote());
+
 	} else if($mode == 'rand') {
 		header('Content-type: text/javascript');
 		echo json_encode(Get_Rand());
+
 	} else if($mode == 'authors') {
 		header('Content-type: text/javascript');
 		echo json_encode(Get_Authors());
 		
+	} else if($mode == 'quotes') {
+		header('Content-type: text/javascript');
+		echo json_encode(Get_Quotes($_GET['author']));
+
 	} else {
 		echo "Invalid Command\n";
 	}

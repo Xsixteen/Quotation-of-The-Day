@@ -23,12 +23,32 @@
 			$.ajax({
 					type: "GET",
 					url: "data.php",
-					data: { m: "todays_quote"},
+					data: { m: "authors"},
 					dataType: 'json'
 				}).done(function(json) {
-					$("#quotation").html(json.quote);
-					$("#author").html(json.author);
-			});
+					$.each(json, function(i, val) {
+						$("<li><a href='#' class='auth_link'>"+val.author+"</a></li>").appendTo("#auth_nav");
+
+					});
+					$(".auth_link").on('click', function(el) {
+						createQuote($(this).text());	
+					});
+				});
+		function createQuote(a) {
+			$.ajax({
+					type: "GET",
+					url: "data.php",
+					data: {   m: "authors"
+						, authors: a
+					},
+					dataType: 'json'
+				}).done(function(json) {
+					
+	
+				});
+			
+
+		}
 		});
 	</script>
 	<div id="wrap">
@@ -51,9 +71,8 @@
 		<div class="container">
 			<div class="row-fluid">
 				<div class="span3">
-					<ul class="nav nav-list authorsMenu">
+					<ul id="auth_nav" class="nav nav-list authorsMenu">
 						<li class="nav-header">Authors</li>
-						<li><a href="#">Test</a></li>
 					</ul>
 				</div>
 				<div class="span9">
