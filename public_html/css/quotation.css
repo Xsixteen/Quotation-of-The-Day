@@ -2,6 +2,7 @@
 				height: 100%;
 				background-color: #efefef;
 			}
+
 	
 			.quotationBox {
 				border: 1px solid #CCC;
@@ -17,6 +18,19 @@
 			hr {
 				border-top: 1px solid #ccc;
 				border-bottom: 1px solid #ccc;
+			}
+
+			#load_graphic {
+				position: relative;
+				left: 50%;
+			}
+			
+			#load_graphic_img {
+				position: absolute;
+				display: none;
+				top: 40%;
+				height: 50px;
+				width: 50px;
 			}
 	
 			#push, 

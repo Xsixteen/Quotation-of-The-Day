@@ -20,6 +20,7 @@
 
 			});
 			$(".nav").html(menuHtml);
+			$("#load_graphic_img").show();
 			$.ajax({
 					type: "GET",
 					url: "data.php",
@@ -28,6 +29,7 @@
 				}).done(function(json) {
 					$("#quotation").html(json.quote);
 					$("#author").html(json.author);
+					$("#load_graphic_img").hide();
 			});
 		});
 	</script>
@@ -53,6 +55,9 @@
 				<div class="span9">
 					<div class="hero-unit quotationBox">
 						<h2>Quotation of the Day</h2>
+						<div id="load_graphic">
+							<img id="load_graphic_img" src='./img/486.gif'>
+						</div>
 						<blockquote>
 							<p><div id="quotation"></div></p>
 							<small><div id="author"></div></small>
