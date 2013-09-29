@@ -32,19 +32,29 @@
 					});
 					$(".auth_link").on('click', function(el) {
 						createQuote($(this).text());	
+						$("#author_header").html('<h1>'+$(this).text()+'</h2>');
 					});
 				});
 		function createQuote(a) {
 			$.ajax({
 					type: "GET",
 					url: "data.php",
-					data: {   m: "authors"
-						, authors: a
+					data: {   m: "quotes"
+						, author: '"' + a + '"'
 					},
 					dataType: 'json'
 				}).done(function(json) {
+					$("#insertion_point").html("");
 					
-					
+					$.each(json, function(i, val) {
+						$("#insertion_point").append(''
+						+	'<div class="hero-unit quotationBox">'
+						+		'<blockquote>'
+						+			'<p><div id="quotation">'+val.quote+'</div></p>'
+						+			'<small><div id="author">'+val.author+'</div></small>'
+						+		'</blockquote>'
+						+	'</div>');
+					});
 	
 				});
 			
@@ -58,13 +68,6 @@
 				<div class="container-fluid">
 					<a class="brand" href="#">Quotation Of The Day</a>
 					<ul class="nav" id="mainMenu">
-<!--
-				<li><a href="#">About</a></li>
-				<li><a href="#">Random</a></li>
-				<li><a href="#">Quotes by Author</a></li>
-				<li><a href="#">Previous Monthly Quote</a></li>
-				<li><a href="#">Quote Database</a></li>
--->
 					</ul>
 				</div>
 			</div>
@@ -76,15 +79,17 @@
 						<li class="nav-header">Authors</li>
 					</ul>
 				</div>
-				<div id="quotation_area" class="span9">
-					<div class="hero-unit quotationBox">
-						<h2>Quotation of the Day</h2>
-						<blockquote>
-							<p><div id="quotation"></div></p>
-							<small><div id="author"></div></small>
-						</blockquote>
+					<div id="author_header" class="span9"></div><br>
+					<div id="quotation_area" class="span9">
+						<div id="insertion_point">
+							<div class="hero-unit quotationBox">
+								<h2>Please select an Author on the Left.</h2>
+								<blockquote>
+									<p><div id="quotation"></div></p>
+								</blockquote>
+							</div>
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 		<div id="push"></div>
