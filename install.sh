@@ -18,7 +18,5 @@ cp -R ./log "$path"
 echo -e "\t=Installed log to $path/log\n"
 
 echo -e "\n===SQL Installation===\n"
-echo -e "\t=Attempting to create DB\n"
-mysql -u$sql_user -p$sql_pass -e "create database quotation"
 echo -e "\t=Attempting to populate DB\n"
-mysql -u$sql_user -p$sql_pass quotation < ./sql/quotation_db.sql
+mysql -u$sql_user -p$sql_pass < ./sql/quotation_db.sql
