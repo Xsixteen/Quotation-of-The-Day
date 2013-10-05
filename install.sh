@@ -30,6 +30,6 @@ echo "#!/bin/bash" >> ./tmp/quotation_of_the_day.sh
 echo "php $ABS_PATH/bin/updateQuote.php >> $ABS_PATH/log/quotation_log"  >> ./tmp/quotation_of_the_day.sh
 echo -e "\t=Installing Bash Script\n"
 chmod +x ./tmp/quotation_of_the_day.sh
-mv ./tmp/quotation_of_the_day.sh /etc/cron.hourly
+mv ./tmp/quotation_of_the_day /etc/cron.hourly
 rm -fr ./tmp
 echo -e "\t=Installation Complete"
